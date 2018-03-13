@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+    h1 {
+    font-family: "Arial", sans-serif;
+    }
+    
+    table.blueTable {
+        font-family: Arial, Helvetica, sans-serif;
+        border: 1px solid #1C6EA4;
+        background-color: #EEEEEE;
+        width: 100%;
+        text-align: left;
+    }
+    table.blueTable td, table.blueTable th {
+        border: 1px solid #AAAAAA;
+        padding: 3px 4px;
+    }
+    table.blueTable tbody td {
+        font-size: 12px;
+    }
+    table.blueTable tr:nth-child(even) {
+        background: #E3F5FF;
+    }
+    table.blueTable thead {
+        background: #2180BF;
+        background: -moz-linear-gradient(top, #58a0cf 0%, #378cc5 66%, #2180BF 100%);
+        background: -webkit-linear-gradient(top, #58a0cf 0%, #378cc5 66%, #2180BF 100%);
+        background: linear-gradient(to bottom, #58a0cf 0%, #378cc5 66%, #2180BF 100%);
+    }
+    table.blueTable thead th {
+        font-size: 15px;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+        table.blueTable tfoot td {
+        font-size: 14px;
+    }
+        table.blueTable tfoot .links {
+        text-align: right;
+    }
+    table.blueTable tfoot .links a{
+        display: inline-block;
+        background: #1C6EA4;
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 5px;
+    }
+</style>
+<body>
+
+<h1>Countermeasure description</h1>
+<p>This table enlists all defined countermeasures with a description, their complexity to implement and difficulty increase on the node it's applied to.</p>
+<table class="blueTable">
+<thead><tr class="tableizer-firstrow"><th>Nr.</th><th>CM name</th><th>Description</th><th>Complexity</th><th>Difficulty increase</th></tr></thead><tbody>
+ <tr><td>1</td><td>Alert/delay on unsuccessful login</td><td>When a series of unsuccesful logins exceeds a certain limit, generate an alert and/or delay the next login.</td><td>LOW</td><td>1</td></tr>
+ <tr><td>2</td><td>Application monitor</td><td>Install an application monitor that evaluates the content of the commands and messages using Deep Packet Inspection (DPI). Any suspicious commands are reported.</td><td>MEDIUM</td><td>2</td></tr>
+ <tr><td>3</td><td>Avoid IP-address ranges</td><td>Avoid ranges of IP-addresses in the firewall rules. An unused but allowed IP-address can be used to sneak through the firewall</td><td>MEDIUM</td><td>1</td></tr>
+ <tr><td>4</td><td>Change default passwords</td><td>A lot of default passwords are published in the vendors documentation.</td><td>LOW</td><td>1</td></tr>
+ <tr><td>5</td><td>Change firewall policy</td><td>Restrict access from this component to the network if unnecessary.</td><td>MEDIUM</td><td>2</td></tr>
+ <tr><td>6</td><td>Checksums on msgs</td><td>Add checksums to the messages (or even better: encrypt/hash messages using secret key)</td><td>MEDIUM</td><td>1</td></tr>
+ <tr><td>7</td><td>Data diode</td><td>A data diode physically restricts data flow to only one direction. This provides a physical segmentation with good performance and few maintenance.</td><td>LOW</td><td>4</td></tr>
+ <tr><td>8</td><td>Disable LM hash</td><td>Disable LM hashes (on all Windows versions before Vista and Server 2008), because these hashes can be cracked really fast. Prevent automatic generation of LM hash by using a password of at least 15 characters.</td><td>MEDIUM</td><td>1</td></tr>
+ <tr><td>9</td><td>Disable unused ports & services</td><td>Unused ports and services are a common attack vector. An unused service can contain vulnerabilities, unused ports can have unintended access to other components in the network. Disable both if unnecessary.</td><td>MEDIUM</td><td>2</td></tr>
+ <tr><td>10</td><td>Encrypted tunnel</td><td>Exchange data within the ICS through an encrypted tunnel. Avoid FTP, telnet and rlogin. Any communication  protocol can be 'tunneled' through SSH. Use HTTPS instead of HTTP.</td><td>MEDIUM</td><td>2</td></tr>
+ <tr><td>11</td><td>Input validation: bounds checking</td><td>Make the application resilient for abnormal values: very large, negative, zero, floating point, ... This can often cause a crash of the system if it can't handle valid values.</td><td>MEDIUM</td><td>2</td></tr>
+ <tr><td>12</td><td>Input validation: buffer length</td><td>Perform a code review of applications that handle network traffic. Check for buffer overflow vulnerabilities by implementing input validation. Inspect the lenght of the input and buffer (esp. for C/C++).</td><td>MEDIUM</td><td>1</td></tr>
+ <tr><td>13</td><td>Input validation: code injection</td><td>Prevent Code Injection by creating statements statically, whitelist of acceptable inputs, reject if not valid or transform. Use prepared statements to avoid SQL injection.</td><td>MEDIUM</td><td>2</td></tr>
+ <tr><td>14</td><td>Input validation: Path Traversal</td><td>Prevent Path Traversal by defining whitelist of acceptable inputs, reject if not valid or transform. Use prepared statements to avoid SQL injection.</td><td>MEDIUM</td><td>2</td></tr>
+ <tr><td>15</td><td>Install Anti-Virus</td><td>Prevent installation of malware (Trojan Horse, keylogger, ...) on the workstation of an employee.</td><td>LOW</td><td>2</td></tr>
+ <tr><td>16</td><td>Install IDS/IPS</td><td>Intrusion Detection and Prevention systems inspect the network traffic for malware or exploits. IDS alerts suspicious packets, IPS can also drop them, preventing further harm. Some available IDS/IPS devices have anomaly detection functionality. Using statistical analysis of common behaviour, unusual events are detected, might mark unknown threats.</td><td>HIGH</td><td>1</td></tr>
+ <tr><td>17</td><td>Install IDS/IPS & Protocol Anomaly Detect.</td><td>Intrusion Detection and Prevention systems inspect the network traffic for malware or exploits. IDS alerts suspicious packets, IPS can also drop them, preventing further harm. Monitor network traffic for changing MAC addresses to prevent MitM attacks. Choose for a device with Protocol Anomaly detection.</td><td>HIGH</td><td>2</td></tr>
+ <tr><td>18</td><td>Install updates/patches</td><td>Install software updates. Vulnerable elements will be protected to newly discovered vulnerabilities.</td><td>HIGH</td><td>3</td></tr>
+ <tr><td>19</td><td>Least privilege</td><td>Apply the Principle of Least Privilege: Grant an employee only the minimum privileges required to perform his job.</td><td>MEDIUM</td><td>2</td></tr>
+ <tr><td>20</td><td>Physical Isolation</td><td>Strong physical isolation (fence, heavy doors) and strict authentication (doors with electronic loc), surveillance (guards, CCTV)</td><td>LOW</td><td>3</td></tr>
+ <tr><td>21</td><td>Physical system hardening</td><td>Obstruct unused ports in order to make physical connection impossible.</td><td>LOW</td><td>2</td></tr>
+ <tr><td>22</td><td>Port Security</td><td>Check MAC address of connected devices and refuse access if unknown device. Disable unsecured/unused ports. Disable USB ports to prevent malware injection.</td><td>LOW</td><td>2</td></tr>
+ <tr><td>23</td><td>Restrict outbound traffic</td><td>An attacker needs feedback during his attack. If outbound traffic is restricted appropriately, the attacker cannot establish an outbound connection for feedback, and is therefore limited to blind attacks.</td><td>HIGH</td><td>2</td></tr>
+ <tr><td>24</td><td>Static ARP table/Dynamic inspection</td><td>Use hard-coded ARP tables for static IP addresses or dynamic ARP inspection for dynamic IP addresses to prevent MitM attacks.</td><td>HIGH</td><td>1</td></tr>
+ <tr><td>25</td><td>Strong Passwords</td><td>Use strong passwords with an expiration time. (See recommendations specified in ISATR99.00.02-2004).</td><td>LOW</td><td>1</td></tr>
+ <tr><td>26</td><td>VPN for remote connection</td><td>Use Virtual Private Network for remote connection to the enterprise. With an unencrypted channel, the credentials could be sniffed.</td><td>MEDIUM</td><td>1</td></tr>
+</tbody></table>
+
+<h1>Attack tree node to countermeasure mapping</h1>
+<p>This table enlists all types of attack tree nodes and the countermeasures that are suggested for them.</p>
+
+<table class="blueTable">
+<thead><tr class="tableizer-firstrow"><th>ATN\CM</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th><th>26</th></tr></thead><tbody>
+ <tr><td>Gain-Physical-Access-To-Component</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>X</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Access-Comp-From-Comp-In-Network</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Firewall(n',n,c')</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Authorization(param, module)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Discover-zero-day-Authentication-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-zero-day-Authentication-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-Auth-Vulnerability</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-Known-Auth-Vulnerability</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Discover-zero-day-Data-Leakage-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-zero-day-Data-Leakage-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-Data-Leakage-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-Known-Data-Leakage-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Discover-zero-day-DoS-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-zero-day-DoS-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-DoS-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-Known-DoS-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Discover-zero-day-Privilege-Escalation-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-zero-day-Privilege-Escalation-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit- Privilege-Escalation-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-Known-Privilege-Escalation-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Discover-zero-day-Remote-Code-Excecution-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-zero-day-Remote-Code-Excecution-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-Remote-Code-Excecution-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Exploit-Known-Remote-Code-Excecution-Vuln</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>ModifyParamFromModule</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>ModifyParam</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>RunSpoofingSW</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Steal-Credential-From-User</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>X</td></tr>
+</tbody></table>
+
+<p style="font-style: italic;">This is documentation for <a href="https://github.com/WouterDep/attacktrees">the attack tree tool</a></p>
+</body>
+</html>
