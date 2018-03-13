@@ -4,6 +4,6 @@ JavaFX tool for Attack Tree generation and evaluation for CPS systems. First a s
 ### JavaFX tool
 The documentation of the source code can be found [here](https://wouterdep.github.io/attacktrees/api-docs/ "JavaFX Tool JavaDocs").
 ### Countermeasures
-The countermeasures are mapped like this: //TODO
+The documentation of all implemented countermeasures (description and mapping to attack tree nodes) can be found [here](https://wouterdep.github.io/attacktrees/cm-docs/ "Countermeasure Documentation").
 ### Templates
 These are the templates
