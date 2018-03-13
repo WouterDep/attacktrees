@@ -8,4 +8,4 @@ The documentation of all implemented countermeasures (description and mapping to
 ### Templates
 These are the templates
 ## Runnable tool (.jar)
-The runnable .jar can be downloaded [here](https://drive.google.com/file/d/1SX90KAGA6yTwASNY24ps0fIBtPGB540K/view?usp=sharing "Runnable .jar").
+The runnable .jar, an IDP-inputfile and a demo attack tree can be downloaded [here](https://drive.google.com/file/d/1SX90KAGA6yTwASNY24ps0fIBtPGB540K/view?usp=sharing "Runnable .jar").
