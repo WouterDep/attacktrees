@@ -6,7 +6,7 @@ The documentation of the source code can be found [here](https://wouterdep.githu
 ### Countermeasures
 The documentation of all implemented countermeasures (description and mapping to attack tree nodes) can be found [here](https://wouterdep.github.io/attacktrees/cm-docs/ "Countermeasure Documentation").
 ### Templates
-These are the templates
+The used templates can be found [here](https://wouterdep.github.io/attacktrees/template-docs/ "Template Documentation")
 ## Runnable tool (.jar)
 The runnable .jar, an IDP-inputfile and a demo attack tree can be downloaded [here](https://drive.google.com/file/d/1SX90KAGA6yTwASNY24ps0fIBtPGB540K/view?usp=sharing "Runnable .jar").
 ### Usage
